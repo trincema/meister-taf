@@ -1,0 +1,25 @@
+{
+  "name": "meister-taf",
+  "version": "1.0.0",
+  "description": "Meister Test Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trincema/CypressTypescriptTemplate.git"
+  },
+  "author": "Emanuel TRINC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trincema/CypressTypescriptTemplate/issues"
+  },
+  "homepage": "https://github.com/trincema/CypressTypescriptTemplate#readme",
+  "devDependencies": {
+    "cypress": "^12.17.1"
+  },
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}
