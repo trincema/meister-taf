@@ -8,20 +8,20 @@ import Wait from "../../support/do-view-check-wait/wait";
 
 describe('Meister login page', () => {
     it('Should login', () => {
-        cy.visit(LoginLocators.Url);
+        cy.visit('https://accounts.meister.co/login');
         cy.viewport(1366, 768);
 
         LoginPage.waitUntilPageReady()
         LoginPage.acceptCookies();
-        LoginPage.login('emanuel.trinc@yahoo.com', 'Emi25##1988');
+        LoginPage.login('emanuel.trinc@yahoo.com', 'Meister12345678');
         Wait.sleep(5);
         cy.origin('https://www.mindmeister.co', () => {
             const dashboardPage = Cypress.require("../../support/page-objects/dashboard/dashboard.page");
             const DashboardPage = new dashboardPage.DashboardPage();
             DashboardPage.backToMindMeister();
             cy.origin('https://accounts.meister.co', () => {
-                //const mindMeisterPlanPage = Cypress.require("../../support/page-objects/mind-meister-plan/mind-meister-plan.page");
-                //mindMeisterPlanPage.MindMeisterPlanPage.chooseBasicPlan();
+                const mindMeisterPlanPage = Cypress.require("../../support/page-objects/mind-meister-plan/mind-meister-plan.page");
+                mindMeisterPlanPage.MindMeisterPlanPage.chooseBasicPlan();
             });
         });
     });
