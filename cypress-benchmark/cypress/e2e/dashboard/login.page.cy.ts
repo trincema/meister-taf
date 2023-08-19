@@ -5,6 +5,8 @@ import LoginPage from "../../support/page-objects/login/login.page";
 import Do from "../../support/do-view-check-wait/do";
 import Check from "../../support/do-view-check-wait/check";
 import Wait from "../../support/do-view-check-wait/wait";
+import dashboardPage from "../../support/page-objects/dashboard/dashboard.page";
+import mindMeisterPlanPage from "../../support/page-objects/mind-meister-plan/mind-meister-plan.page";
 
 describe('Meister login page', () => {
     it('Should login', () => {
@@ -14,15 +16,14 @@ describe('Meister login page', () => {
         LoginPage.waitUntilPageReady()
         LoginPage.acceptCookies();
         LoginPage.login('emanuel.trinc@yahoo.com', 'Meister12345678');
-        Wait.sleep(5);
-        cy.origin('https://www.mindmeister.co', () => {
-            const dashboardPage = Cypress.require("../../support/page-objects/dashboard/dashboard.page");
-            const DashboardPage = new dashboardPage.DashboardPage();
-            DashboardPage.backToMindMeister();
-            cy.origin('https://accounts.meister.co', () => {
-                const mindMeisterPlanPage = Cypress.require("../../support/page-objects/mind-meister-plan/mind-meister-plan.page");
-                mindMeisterPlanPage.MindMeisterPlanPage.chooseBasicPlan();
-            });
+        dashboardPage.backToMindMeister();
+        mindMeisterPlanPage.chooseBasicPlan();
+        
+        cy.origin('https://www.mindmeister.com', () => {
+            const check = Cypress.require("../../support/do-view-check-wait/check");
+            const Check = new check.Check();
+            const dashboardLocators = Cypress.require("../../support/page-objects/dashboard/dashboard.locators");
+            Check.haveText(dashboardLocators.DashboardLocators.NavItem, 'My Maps');
         });
     });
 });
