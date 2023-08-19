@@ -9,15 +9,15 @@ export class MindMeisterPlanPage {
         Do.click(MindMeisterLocatorsLocators.ChooseProfileButton);
     }
 
-    public chooseBasicPlan(plan: MindMeisterPlan): void {
+    public chooseBasicPlan(): void {
         Do.clickByIndex(MindMeisterLocatorsLocators.ChooseProfileButton, MindMeisterPlan.Basic);
     }
 
-    public choosePersonalPlan(plan: MindMeisterPlan): void {
+    public choosePersonalPlan(): void {
         Do.clickByIndex(MindMeisterLocatorsLocators.ChooseProfileButton, MindMeisterPlan.Personal);
     }
 
-    public chooseProPlan(plan: MindMeisterPlan): void {
+    public chooseProPlan(): void {
         Do.clickByIndex(MindMeisterLocatorsLocators.ChooseProfileButton, MindMeisterPlan.Pro);
     }
 
