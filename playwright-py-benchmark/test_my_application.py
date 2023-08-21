@@ -28,10 +28,10 @@ def test_login(page: Page):
     backToMindMeister.click(timeout=30000)
 
     # Click Basic Plan to go to Dashboard
-    basicPlan = page.locator('css=button[class*="plan-card__button"]')
-    basicPlan[0].click()
+    basicPlan = page.locator('css=button[class*="plan-card__button"] >> nth=0')
+    basicPlan.click()
 
-    navItem = page.locator('css=div[class="kr-text"]')
+    navItem = page.locator('css=div[class="kr-text"] >> nth=0')
     navItem.click()
 
     time.sleep(10000)
