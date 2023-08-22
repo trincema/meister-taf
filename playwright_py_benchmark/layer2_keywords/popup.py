@@ -1,6 +1,6 @@
 from ..layer1_page_object_model.popup.popup_page import PopupPage
 
-class Popup:
+class PopupKeywords:
     class Cookies:
         def close_accept_all():
             """

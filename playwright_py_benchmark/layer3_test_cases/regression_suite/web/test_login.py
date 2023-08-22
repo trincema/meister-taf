@@ -1,12 +1,12 @@
 from playwright.sync_api import Page
 from ...test_data.login_data import LoginData
-from ....layer0_automation_tool.do_view_check.playwright.dvc import DoViewCheck
-from ....layer0_automation_tool.do_view_check.playwright.check import Check
+from ....layer0_automation_tool.playwright.dvc import DoViewCheck
+from ....layer0_automation_tool.playwright.check import Check
 from ....layer1_page_object_model.page import Page
 from ....layer1_page_object_model.login.login_page import LoginPage
 from ....layer1_page_object_model.login.login_locators import LoginLocators
 from ....layer1_page_object_model.profile.me_locators import MeLocators
-from ....layer2_keywords.popup import Popup
+from ....layer2_keywords.popup import PopupKeywords
 from ....layer2_keywords.authentication import AuthenticationKeywords
 
 import time
@@ -23,6 +23,8 @@ def test_invalid_credentials(page: Page):
     """
     DoViewCheck.page = page
     LoginPage.open_browser(LoginData.MIND_MEISTER_URL)
+    PopupKeywords.Cookies.close_accept_all()
+    
     LoginPage.input_username(LoginData.INVALID_USERNAME)
     if crawler_enabled: time.sleep(2)
     LoginPage.input_password(LoginData.INVALID_PASSWORD)
@@ -40,6 +42,6 @@ def test_valid_credentials(page: Page):
     DoViewCheck.page = page
     LoginPage.open_browser(LoginData.MIND_MEISTER_URL)
     
-    Popup.Cookies.close_accept_all()
+    PopupKeywords.Cookies.close_accept_all()
     AuthenticationKeywords.Login.login(LoginData.VALID_USERNAME, LoginData.VALID_PASSWORD, crawler_enabled)
     Check.visibility(MeLocators.USER_NAME)

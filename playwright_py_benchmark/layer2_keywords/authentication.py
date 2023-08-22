@@ -1,4 +1,4 @@
-from ..layer0_automation_tool.do_view_check.playwright.check import Check
+from ..layer0_automation_tool.playwright.check import Check
 from ..layer1_page_object_model.popup.popup_page import PopupPage
 from ..layer1_page_object_model.login.login_page import LoginPage
 from ..layer1_page_object_model.login.login_locators import LoginLocators
