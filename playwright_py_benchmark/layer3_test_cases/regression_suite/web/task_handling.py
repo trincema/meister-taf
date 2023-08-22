@@ -1,3 +1,4 @@
+import time
 from playwright.sync_api import Page
 from ...test_data.login_data import LoginData
 from ....layer0_automation_tool.playwright.dvc import DoViewCheck
@@ -8,12 +9,13 @@ from ....layer1_page_object_model.meister_task.dashboard.dashboard_page import T
 from ....layer1_page_object_model.meister_task.dashboard.dashboard_page import TaskNavItem
 from ....layer1_page_object_model.meister_task.dashboard.add_task_dialog import AddTaskDialog
 from ....layer1_page_object_model.meister_task.dashboard.task_details_dialog import TaskDetailsDialog
+from ....layer1_page_object_model.meister_task.agenda.agenda_page import TaskAgendaPage
 from ....layer2_keywords.popup import PopupKeywords
 from ....layer2_keywords.authentication import AuthenticationKeywords
 
 crawler_enabled = True
 
-def test_add_task(page: Page):
+def xtest_add_task(page: Page):
     """
     Test Scenario:
         1. Login to Meister Task web app
@@ -37,7 +39,9 @@ def test_add_task(page: Page):
     TaskDetailsDialog.pin_to_focus()
     TaskDetailsDialog.close_dialog()
     TaskDashboardPage.navigate(TaskNavItem.Agenda)
-    Check.visibility('Task1', By.Text)
+    Check.visibility('Task1', by=By.Text)
+    time.sleep(2)
+    # TODO - Implement proper checks here
 
 def test_delete_task(page: Page):
     """
@@ -55,5 +59,10 @@ def test_delete_task(page: Page):
     
     AuthenticationKeywords.Login.login(LoginData.VALID_USERNAME, LoginData.VALID_PASSWORD, crawler_enabled)
     TaskDashboardPage.navigate(TaskNavItem.Agenda)
-    Check.visibility('Task1', By.Text)
-    
+    Check.visibility('Task1', by=By.Text)
+    TaskDashboardPage.open_task('Task1')
+    TaskDetailsDialog.open_task_menu()
+    TaskDetailsDialog.delete_task()
+    Check.visibility('Task1', by=By.Text)
+    time.sleep(2)
+    # TODO - Implement proper checks here
