@@ -1,5 +1,6 @@
 from enum import Enum
 from ...page import Page
+from ....layer0_automation_tool.playwright.dvc import By
 
 class DashboardLocators:
     HEADER_ADD_TASK = 'div[data-test-id="header-button-add-task-right"]'
@@ -30,3 +31,11 @@ class TaskDashboardPage(Page):
                 Page.click(DashboardLocators.DASHBOARD)
             case TaskNavItem.Agenda:
                 Page.click(DashboardLocators.AGENDA)
+    
+    def open_task(task_name: str) -> None:
+        """_summary_
+
+        Args:
+            task_name (str): _description_
+        """
+        Page.click(task_name, By.Text)

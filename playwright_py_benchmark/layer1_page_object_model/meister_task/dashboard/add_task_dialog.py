@@ -19,4 +19,4 @@ class AddTaskDialog(Page):
         """
         Click 'Create Task' button.
         """
-        Page.click(AddTaskDialogLocators.CREATE_TASK_BUTTON, ClickMissfire.WAIT_FOR_INVISIBLE)
+        Page.click(AddTaskDialogLocators.CREATE_TASK_BUTTON, issue=ClickMissfire.WAIT_FOR_INVISIBLE)
