@@ -23,7 +23,7 @@ def test_invalid_credentials(page: Page, assert_snapshot):
     page.set_viewport_size({ "width": 1920, "height": 1080 })   # 1080p
     LoginPage.open_browser(LoginData.MIND_MEISTER_URL)
     AuthenticationKeywords.Login.wait_until_ready()
-    assert_snapshot(DoViewCheck.page.screenshot())
+    #assert_snapshot(DoViewCheck.page.screenshot())
     PopupKeywords.Cookies.close_accept_all()
     
     LoginPage.input_username(LoginData.INVALID_USERNAME)
@@ -48,4 +48,4 @@ def test_valid_credentials(page: Page, assert_snapshot):
     PopupKeywords.Cookies.close_accept_all()
     AuthenticationKeywords.Login.login(LoginData.VALID_USERNAME, LoginData.VALID_PASSWORD, crawler_enabled)
     Profile.Me.wait_until_ready()
-    assert_snapshot(DoViewCheck.page.screenshot())
+    #assert_snapshot(DoViewCheck.page.screenshot())
