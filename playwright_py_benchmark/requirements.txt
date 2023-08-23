@@ -1,3 +1,4 @@
 pytest-playwright==
+pytest-playwright-visual==
 sphinx==
 m2r2==

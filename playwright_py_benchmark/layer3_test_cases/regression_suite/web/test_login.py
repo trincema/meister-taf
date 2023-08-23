@@ -1,19 +1,17 @@
 from playwright.sync_api import Page
 from ...test_data.login_data import LoginData
 from ....layer0_automation_tool.playwright.dvc import DoViewCheck
-from ....layer0_automation_tool.playwright.check import Check
 from ....layer1_page_object_model.page import Page
 from ....layer1_page_object_model.login.login_page import LoginPage
-from ....layer1_page_object_model.login.login_locators import LoginLocators
-from ....layer1_page_object_model.profile.me_locators import MeLocators
 from ....layer2_keywords.popup import PopupKeywords
 from ....layer2_keywords.authentication import AuthenticationKeywords
+from ....layer2_keywords.profile import Profile
 
 import time
 
 crawler_enabled = True
 
-def test_invalid_credentials(page: Page):
+def test_invalid_credentials(page: Page, assert_snapshot):
     """
     Test case:
         1. Navigate to login page
@@ -22,7 +20,10 @@ def test_invalid_credentials(page: Page):
         4. Check that the error message 'Sorry, these credentials are invalid.' appears on screen
     """
     DoViewCheck.page = page
+    page.set_viewport_size({ "width": 1920, "height": 1080 })   # 1080p
     LoginPage.open_browser(LoginData.MIND_MEISTER_URL)
+    AuthenticationKeywords.Login.wait_until_ready()
+    assert_snapshot(DoViewCheck.page.screenshot())
     PopupKeywords.Cookies.close_accept_all()
     
     LoginPage.input_username(LoginData.INVALID_USERNAME)
@@ -32,7 +33,7 @@ def test_invalid_credentials(page: Page):
     LoginPage.submit()
     AuthenticationKeywords.Login.check_error_message(LoginData.INVALID_CREDENTIALS_MESSAGE, 10)
 
-def test_valid_credentials(page: Page):
+def test_valid_credentials(page: Page, assert_snapshot):
     """
     Test case:
         1. Navigate to login page
@@ -40,8 +41,11 @@ def test_valid_credentials(page: Page):
         3. Check that Profile page is successfuly reached
     """
     DoViewCheck.page = page
+    page.set_viewport_size({ "width": 1920, "height": 1080 })   # 1080p
     LoginPage.open_browser(LoginData.MIND_MEISTER_URL)
+    AuthenticationKeywords.Login.wait_until_ready()
     
     PopupKeywords.Cookies.close_accept_all()
     AuthenticationKeywords.Login.login(LoginData.VALID_USERNAME, LoginData.VALID_PASSWORD, crawler_enabled)
-    Check.visibility(MeLocators.USER_NAME)
+    Profile.Me.wait_until_ready()
+    assert_snapshot(DoViewCheck.page.screenshot())
