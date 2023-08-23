@@ -1,4 +1,4 @@
-pytest-playwright==
-pytest-playwright-visual==
-sphinx==
-m2r2==
+pytest-playwright==0.4.2
+pytest-playwright-visual==2.1.2
+Sphinx==7.2.2
+m2r2==0.3.2
