@@ -23,11 +23,11 @@ jobs:
       - name: Test
         uses: onichandame/python-test-action@master
         with:
-          deps_list: 'requirements.txt'
+          deps_list: 'playwright_py_benchmark/requirements.txt'
       - name: Install Dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
+          python3 -m pip install -r playwright_py_benchmark/requirements.txt
       - name: Lint with Ruff
         run: |
           ruff --format=github --target-version=py38 .
