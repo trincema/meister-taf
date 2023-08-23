@@ -1,6 +1,8 @@
 from enum import Enum
 from ...page import Page
 from ....layer0_automation_tool.playwright.dvc import By
+from ....layer0_automation_tool.playwright.wait import Wait
+import time
 
 class DashboardLocators:
     HEADER_ADD_TASK = 'div[data-test-id="header-button-add-task-right"]'
@@ -14,6 +16,12 @@ class TaskNavItem(Enum):
     Projects = 3
 
 class TaskDashboardPage(Page):
+    
+    def wait_page_ready() -> None:
+        """_summary_
+        """
+        Wait.visibility_by_index(DashboardLocators.DASHBOARD, 1)
+        Wait.visibility(DashboardLocators.AGENDA)
 
     def add_task() -> None:
         """_summary_
