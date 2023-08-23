@@ -41,4 +41,4 @@ jobs:
           chrome --version
       - name: Run Web Regression Tests
         run: |
-          pytest --headed --video=on playwright_py_benchmark/layer3_test_cases/regression_suite/web/
+          pytest --video=on playwright_py_benchmark/layer3_test_cases/regression_suite/web/

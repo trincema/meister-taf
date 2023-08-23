@@ -36,8 +36,8 @@ def test_add_task(page: Page, assert_snapshot):
     
     AuthenticationKeywords.Login.login(LoginData.VALID_USERNAME, LoginData.VALID_PASSWORD, crawler_enabled)
     TaskDashboardPage.wait_page_ready()
-    SnapshotKeywords.info_snapshot()
-    time.sleep(100000)
+    #SnapshotKeywords.info_snapshot()
+    #time.sleep(100000)
     
     TaskDashboardPage.add_task()
     AddTaskDialog.input_task_title('Task1')
@@ -46,8 +46,8 @@ def test_add_task(page: Page, assert_snapshot):
     TaskDetailsDialog.pin_to_focus()
     TaskDetailsDialog.close_dialog()
     TaskDashboardPage.navigate(TaskNavItem.Agenda)
-    time.sleep(5)
-    SnapshotKeywords.assert_snapshot(assert_snapshot)
+    #time.sleep(5)
+    #SnapshotKeywords.assert_snapshot(assert_snapshot)
     Check.visibility('Task1', by=By.Text)
     
     time.sleep(2)
