@@ -77,7 +77,7 @@ jobs:
           python3 --version
           pytest --version
           chrome --version
-      - name: Run Web Regression Tests
+      - name: Robot Framework Tests
         run: |
           robot --outputdir robot-test-results robot-framework-benchmark/layer3_test_cases
       - name: Archive Test Results
