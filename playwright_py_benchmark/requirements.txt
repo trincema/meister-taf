@@ -1,3 +1,4 @@
 ruff
+pytest-reporter-html1
 pytest-playwright==0.4.2
 pytest-playwright-visual==2.1.2
