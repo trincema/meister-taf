@@ -79,7 +79,7 @@ jobs:
           chrome --version
       - name: Run Web Regression Tests
         run: |
-          robot --outputdir robot-test-results layer3_test_cases
+          robot --outputdir robot-test-results robot-framework-benchmark/layer3_test_cases
       - name: Archive Test Results
         uses: actions/upload-artifact@v3
         with:
