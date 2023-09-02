@@ -38,12 +38,10 @@ jobs:
         run: |
           java --version
           javac --version
-          groovy -version
-          groovyc -version
           chrome --version
       - name: Groovy Tests
         run: |
-          java 
+          groovyc groovy-benchmark/layer3_test_cases/LoginTest.groovy
       - name: Archive Test Results
         uses: actions/upload-artifact@v3
         with:
