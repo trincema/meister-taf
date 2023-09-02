@@ -25,7 +25,7 @@ jobs:
           java-version: '17'
       - name: Install Dependencies
         run: |
-          apt-get install groovy
+          sudo apt-get install groovy
           ls /usr/lib/jvm
           export JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
           echo $JAVA_HOME
