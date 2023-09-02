@@ -7,46 +7,6 @@ on:
     branches: [ "**" ]
 
 jobs:
-  playwright-py:
-    runs-on: ubuntu-latest
-    strategy:
-      # You can use PyPy versions in python-version.
-      # For example, pypy2.7 and pypy3.9
-      matrix:
-        python-version: ["3.10"]
-
-    steps:
-      - uses: actions/checkout@master # THIS IS IMPORTANT
-      - uses: actions/setup-python@v3 # THIS IS IMPORTANT
-        with:
-          python-version: '3.10'
-      - name: Test
-        uses: onichandame/python-test-action@master
-        with:
-          deps_list: 'playwright_py_benchmark/requirements.txt'
-      - name: Install Dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r playwright_py_benchmark/requirements.txt
-          playwright install
-      - name: Lint with Ruff
-        run: |
-          ruff --format=github --target-version=py310 .
-        continue-on-error: true
-      - name: Show library versions
-        run: |
-          python3 --version
-          pytest --version
-          chrome --version
-      - name: Run Web Regression Tests
-        run: |
-          pytest --video=on --template=html1/index.html --report=test-results/report.html playwright_py_benchmark/layer3_test_cases/regression_suite/web/
-      - name: Archive Test Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: playwright_py_benchmark/test-results
-  
   robot-framework:
     runs-on: ubuntu-latest
     strategy:
