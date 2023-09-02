@@ -24,6 +24,9 @@ jobs:
           java-version: '17'
       - name: Install Dependencies
         run: |
+          curl -s "https://get.sdkman.io" | bash
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sdk version
           ls /usr/lib/jvm
           export JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
           echo $JAVA_HOME
@@ -31,6 +34,7 @@ jobs:
         continue-on-error: true
       - name: Show library versions
         run: |
+          sdk version
           java --version
           javac --version
           groovy --version
