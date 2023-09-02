@@ -18,8 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@master # THIS IS IMPORTANT
       # - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3   # THIS IS IMPORTANT
       - uses: browser-actions/setup-chrome@v1
+      - uses: actions/setup-java@v3   # THIS IS IMPORTANT
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
