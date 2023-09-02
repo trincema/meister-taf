@@ -25,13 +25,10 @@ jobs:
           java-version: '17'
       - name: Install Dependencies
         run: |
-          curl -s "https://get.sdkman.io" | bash
-          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          apt-get install groovy
           ls /usr/lib/jvm
           export JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
           echo $JAVA_HOME
-          sdk version
-          sdk install groovy
           groovy -version
           groovyc -version
         continue-on-error: true
