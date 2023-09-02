@@ -28,6 +28,8 @@ jobs:
         continue-on-error: true
       - name: Show library versions
         run: |
+          cd /usr/lib/jvm
+          ls
           java --version
           javac --version
           groovy --version
