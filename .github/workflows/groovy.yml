@@ -32,6 +32,7 @@ jobs:
           sdk version
           sdk install groovy
           groovy -version
+          groovyc -version
         continue-on-error: true
       - name: Show library versions
         run: |
