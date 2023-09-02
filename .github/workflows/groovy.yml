@@ -29,13 +29,13 @@ jobs:
           ls /usr/lib/jvm
           export JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
           echo $JAVA_HOME
-          groovy -version
-          groovyc -version
         continue-on-error: true
       - name: Show library versions
         run: |
           java --version
           javac --version
+          groovy -version
+          groovyc -version
           chrome --version
       - name: Groovy Tests
         run: |
