@@ -1,4 +1,4 @@
-name: Meister Test Automation Solution (TAS)
+name: Meister TAS Playwright Python
 
 # Controls when the workflow will run
 on:
