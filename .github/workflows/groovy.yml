@@ -24,12 +24,13 @@ jobs:
           java-version: '17'
       - name: Install Dependencies
         run: |
+          ls /usr/lib/jvm
+          export JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
+          echo $JAVA_HOME
           sdk install groovy
         continue-on-error: true
       - name: Show library versions
         run: |
-          cd /usr/lib/jvm
-          ls
           java --version
           javac --version
           groovy --version
