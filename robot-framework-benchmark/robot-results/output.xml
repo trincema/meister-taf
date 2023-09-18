@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20230827 00:50:00.325" rpa="false" schemaversion="4">
+<suite id="s1" name="Layer3 Test Cases" source="/home/emanuel/meister-taf/robot-framework-benchmark/layer3_test_cases">
+<suite id="s1-s1" name="Login" source="/home/emanuel/meister-taf/robot-framework-benchmark/layer3_test_cases/login.robot">
+<test id="s1-s1-t1" name="Valid Login MindMeister" line="16">
+<kw name="Given I am on the MindMeister login page" library="login_keywords">
+<kw name="Log To Console" library="BuiltIn">
+<arg>I am on the MindMeister login page</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230827 00:50:00.448" endtime="20230827 00:50:00.449"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${MIND_MEISTER_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230827 00:50:00.449" level="INFO">Opening browser 'chrome' to base url 'https://accounts.meister.co/login'.</msg>
+<status status="PASS" starttime="20230827 00:50:00.449" endtime="20230827 00:50:03.838"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:03.838" endtime="20230827 00:50:03.854"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230827 00:50:03.854" endtime="20230827 00:50:03.998"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:00.448" endtime="20230827 00:50:03.998"/>
+</kw>
+<kw name="When I login with username &quot;${VALID_USERNAME}&quot; and password &quot;${VALID_PASSWORD}&quot;" library="login_keywords" sourcename="I login with username &quot;${username}&quot; and password &quot;${password}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>I login to MindMeister with username "${username}" and password "${password}"</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230827 00:50:03.998" endtime="20230827 00:50:03.999"/>
+</kw>
+<kw name="Set username" library="login_page">
+<arg>${username}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:03.999" endtime="20230827 00:50:04.014"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230827 00:50:04.015" level="INFO">Typing text 'emanuel.trinc@yahoo.com' into text field 'css=input[id="login_email_login"]'.</msg>
+<status status="PASS" starttime="20230827 00:50:04.014" endtime="20230827 00:50:04.091"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:03.999" endtime="20230827 00:50:04.092"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230827 00:50:06.092" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230827 00:50:04.092" endtime="20230827 00:50:06.093"/>
+</kw>
+<kw name="Set password" library="login_page">
+<arg>${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:06.093" endtime="20230827 00:50:06.109"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230827 00:50:06.109" level="INFO">Typing password into text field 'css=input[id="login_email_password"]'.</msg>
+<msg timestamp="20230827 00:50:06.129" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230827 00:50:06.174" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230827 00:50:06.109" endtime="20230827 00:50:06.174"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:06.093" endtime="20230827 00:50:06.174"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230827 00:50:08.175" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230827 00:50:06.175" endtime="20230827 00:50:08.175"/>
+</kw>
+<kw name="Submit" library="login_page">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230827 00:50:08.175" endtime="20230827 00:50:08.201"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230827 00:50:08.201" level="INFO">Clicking element 'css=input[id="btn_signin"]'.</msg>
+<status status="PASS" starttime="20230827 00:50:08.201" endtime="20230827 00:50:08.240"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:08.175" endtime="20230827 00:50:08.240"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:03.998" endtime="20230827 00:50:08.240"/>
+</kw>
+<kw name="Then I should see the MindMeister profile page" library="login_keywords">
+<kw name="Log To Console" library="BuiltIn">
+<arg>I should see the MindMeister profile page</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230827 00:50:08.241" endtime="20230827 00:50:08.241"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PROFILE_USER_NAME}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:08.241" endtime="20230827 00:50:16.974"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:08.241" endtime="20230827 00:50:16.974"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230827 00:50:16.974" endtime="20230827 00:50:17.042"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:00.448" endtime="20230827 00:50:17.043"/>
+</test>
+<test id="s1-s1-t2" name="Valid Login MeisterTask" line="22">
+<kw name="Given I am on the MeisterTask login page" library="login_keywords">
+<kw name="Log To Console" library="BuiltIn">
+<arg>I am on the MeisterTask login page</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230827 00:50:17.044" endtime="20230827 00:50:17.044"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${MEISTER_TASK_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230827 00:50:17.045" level="INFO">Opening browser 'chrome' to base url 'https://www.meistertask.com/app/dashboard'.</msg>
+<status status="PASS" starttime="20230827 00:50:17.044" endtime="20230827 00:50:25.881"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:25.881" endtime="20230827 00:50:25.895"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230827 00:50:25.895" endtime="20230827 00:50:26.021"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:17.043" endtime="20230827 00:50:26.021"/>
+</kw>
+<kw name="When I login with username &quot;${VALID_USERNAME}&quot; and password &quot;${VALID_PASSWORD}&quot;" library="login_keywords" sourcename="I login with username &quot;${username}&quot; and password &quot;${password}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>I login to MindMeister with username "${username}" and password "${password}"</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230827 00:50:26.022" endtime="20230827 00:50:26.023"/>
+</kw>
+<kw name="Set username" library="login_page">
+<arg>${username}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:26.023" endtime="20230827 00:50:26.051"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230827 00:50:26.052" level="INFO">Typing text 'emanuel.trinc@yahoo.com' into text field 'css=input[id="login_email_login"]'.</msg>
+<status status="PASS" starttime="20230827 00:50:26.051" endtime="20230827 00:50:26.150"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:26.023" endtime="20230827 00:50:26.150"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230827 00:50:28.150" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230827 00:50:26.150" endtime="20230827 00:50:28.150"/>
+</kw>
+<kw name="Set password" library="login_page">
+<arg>${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:28.151" endtime="20230827 00:50:28.165"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230827 00:50:28.166" level="INFO">Typing password into text field 'css=input[id="login_email_password"]'.</msg>
+<msg timestamp="20230827 00:50:28.182" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230827 00:50:28.219" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230827 00:50:28.165" endtime="20230827 00:50:28.219"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:28.151" endtime="20230827 00:50:28.219"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230827 00:50:30.219" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230827 00:50:28.219" endtime="20230827 00:50:30.220"/>
+</kw>
+<kw name="Submit" library="login_page">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230827 00:50:30.221" endtime="20230827 00:50:30.245"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230827 00:50:30.247" level="INFO">Clicking element 'css=input[id="btn_signin"]'.</msg>
+<status status="PASS" starttime="20230827 00:50:30.246" endtime="20230827 00:50:30.296"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:30.220" endtime="20230827 00:50:30.296"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:26.021" endtime="20230827 00:50:30.296"/>
+</kw>
+<kw name="Then I should see the MeisterTask Home page" library="login_keywords">
+<kw name="Log To Console" library="BuiltIn">
+<arg>I should see the MeisterTask Home page</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230827 00:50:30.298" endtime="20230827 00:50:30.299"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${TASK_DASHBOARD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230827 00:50:30.299" endtime="20230827 00:50:34.679"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:30.297" endtime="20230827 00:50:34.679"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230827 00:50:34.680" endtime="20230827 00:50:34.747"/>
+</kw>
+<status status="PASS" starttime="20230827 00:50:17.043" endtime="20230827 00:50:34.748"/>
+</test>
+<status status="PASS" starttime="20230827 00:50:00.338" endtime="20230827 00:50:34.751"/>
+</suite>
+<status status="PASS" starttime="20230827 00:50:00.326" endtime="20230827 00:50:34.755"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Layer3 Test Cases">Layer3 Test Cases</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Login">Layer3 Test Cases.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

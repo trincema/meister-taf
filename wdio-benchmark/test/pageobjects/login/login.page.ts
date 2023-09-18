@@ -1,6 +1,31 @@
-import { $ } from '@wdio/globals'
-import { Page } from '../page.js';
+import { $, browser } from '@wdio/globals'
+import Page from '../page.js';
 import { LoginLocators } from './login.locators.js';
+
+class Page {
+    public static async inputValue(locator: string, value: string) {
+        await $(locator).setValue(value);
+    }
+
+    public static async click(locator: string) {
+        await $(locator).click();
+    }
+}
+
+class WebLoginPage extends Page {
+    public static inputUsername(username: string) {
+        super.inputValue(LoginLocators.UsernameField, username);
+        // equivalent to Page.inputValue(LoginLocators.UsernameField, username);
+    }
+
+    public static async inputPassword(password: string) {
+        super.inputValue(LoginLocators.PasswordField, password);
+    }
+
+    public static async clickLoginButton() {
+        super.click(LoginLocators.Submit);
+    }
+}
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -27,16 +52,29 @@ class LoginPage extends Page {
     public open() {
         super.navigate(LoginLocators.Url);
         super.setBrowserSize(1920, 1200);
+
+        browser.url(browser.config.url_mind_meister);
+        browser.url(browser.config.url_mind_meister);
+        browser.url(browser.config.url_mind_meister);
+
+        Page.navigate(browser.config.url_mind_meister);
+        Page.navigate(browser.config.url_meister_task);
+        Page.navigate(browser.config.url_meister_note);
+
     }
 
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    public async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+    public async login(username: string, password: string) {
+        WebLoginPage.inputUsername(username);
+        WebLoginPage.inputPassword(password);
+        WebLoginPage.clickLoginButton();
+    }
+
+    public async logout() {
+        
     }
 
     public async waitUntilReady() {

@@ -1,10 +1,11 @@
 import type { Options } from '@wdio/types'
 export const config: Options.Testrunner = {
-    //
     // ====================
     // Runner Configuration
     // ====================
-    // WebdriverIO supports running e2e tests as well as unit and component tests.
+    url_mind_meister: "https://www.mindmeister-dev.com/",
+    url_meister_task: "https://www.meistertask-dev.com/",
+    url_meister_note: "https://www.meisternote-dev.com/",
     runner: 'local',
     autoCompileOpts: {
         autoCompile: true,

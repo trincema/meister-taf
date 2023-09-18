@@ -10,6 +10,24 @@
     "typescript": "^5.1.6"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.ts"
+    "wdio-local-env": "wdio run ./wdio-local-env.conf.ts",
+    "wdio-dev-env": "wdio run ./wdio-dev-env.conf.ts",
+    "wdio-qa-env": "wdio run ./wdio-qa-env.conf.ts",
+    "wdio-preprod-env": "wdio run ./wdio-preprod-env.conf.ts",
+    "wdio-uat-env": "wdio run ./wdio-uat-env.conf.ts",
+
+    "wdio-dev-chrome-en": "wdio run ./wdio-dev-chrome-en.conf.ts",
+    "wdio-dev-firefox-en": "wdio run ./wdio-dev-firefox-en.conf.ts",
+    "wdio-dev-edge-en": "wdio run ./wdio-dev-edge-en.conf.ts",
+    "wdio-dev-safari-en": "wdio run ./wdio-dev-safari-en.conf.ts",
+
+    "wdio-dev-chrome-de": "wdio run ./wdio-dev-chrome-en.conf.ts",
+    "wdio-dev-firefox-de": "wdio run ./wdio-dev-firefox-en.conf.ts",
+    "wdio-dev-edge-de": "wdio run ./wdio-dev-edge-en.conf.ts",
+    "wdio-dev-safari-de": "wdio run ./wdio-dev-safari-en.conf.ts",
+    
+    "wdio-dev-en": "wdio run ./wdio-dev-chrome-en.conf.ts && wdio run ./wdio-dev-firefox-en.conf.ts && wdio run ./wdio-dev-edge-en.conf.ts",
+    "wdio-dev-de": "wdio run ./wdio-dev-chrome-de.conf.ts && wdio run ./wdio-dev-firefox-de.conf.ts && wdio run ./wdio-dev-edge-de.conf.ts",
+    "wdio-dev-it": "wdio run ./wdio-dev-chrome-it.conf.ts && wdio run ./wdio-dev-firefox-it.conf.ts && wdio run ./wdio-dev-edge-it.conf.ts"
   }
 }

@@ -14,3 +14,7 @@ Then just execute the scripts from the project root directory `playwright_py_ben
 ## Layer 6 - Generate Documentation
 - Code documentation:
     - `sphinx-apidoc -o layer6_documentation/docs ./`
+
+## Other Topics
+# Screenshot Testing
+- Integrated 
